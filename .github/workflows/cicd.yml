@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Pull image from docker hub
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/email-app:latest
-      - name: Delete Old Container
+      - name: Delete Old Container by name
         run: docker rm -f frontendContainer
       - name: Run docker container
         run: docker run -d -p 80:80 --name frontendContainer ${{ secrets.DOCKER_USERNAME }}/email-app:latest
